@@ -1,8 +1,14 @@
+from django.http import HttpRequest
+from django.shortcuts import render
+
 from .form import PersonForm
 
 
-# Create your views here.
-def add(request):
-    if request.method == 'POST':
-        try:
-            from=PersonForm(request.POST)
+class PersonFormViews(HttpRequest):
+
+    def add(request):
+        form = PersonForm()
+        if form.is_valid():
+            form.save()
+            form = PersonForm()
+        return render(request, 'add.html', {'form': form})
