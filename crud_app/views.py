@@ -8,7 +8,13 @@ class PersonFormViews(HttpRequest):
 
     def add(request):
         form = PersonForm()
-        if form.is_valid():
-            form.save()
-            form = PersonForm()
+        # if form.is_valid():
+        #     form.save()
+        #     form = PersonForm()
         return render(request, 'add.html', {'form': form})
+
+    def update(request):
+        pass
+
+    def delete(request):
+        pass

@@ -9,6 +9,7 @@ option_sex = [
 
 
 class PersonForm(forms.ModelForm):
+
     class Meta:
         models = Person
         fields = '__all__'
