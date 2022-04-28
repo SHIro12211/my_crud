@@ -1,0 +1,11 @@
+
+{% csrf_token %}
+{% if form.visible_fields %}
+    {% for field in form.visible_fields %}
+        <div class="field_wrapper">
+            {{ field.label_tag }} {{ field }}
+        </div>
+
+    {% endfor %}
+
+{% endif %}

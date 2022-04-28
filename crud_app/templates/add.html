@@ -1,10 +1,13 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
 {% block  title %}Añadir Persona{% endblock %}
 
 {% block content %}
-    <form action="/add/" method="post">{% csrf_token %}
-        {{ form }}
-    <input type="submit" value="Aceptar" >
-    <input type="button" value="Cancelar">
+    <form  method="post">
+    {% include "forms_template.html" %}
+    <input type="submit" value="Guardar">
+    <a href="{% url 'crud:index' %}"><input type="button"  value="Cancelar"></a>
     </form>
 {% endblock %}

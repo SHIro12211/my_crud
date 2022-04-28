@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block  title %}Ver Tabla{% endblock %}
+
+{% block content %}
+
+    <table style="margin: 10px" class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+        </tr>
+        {% for l in list %}
+            <tr>
+                <td>{{ l.id }}</td>
+                <td>{{ l.name }}</td>
+            <td><a href="{% url 'crud:update' l.id %}">Modificar</a></td>
+            <td><a href="{% url 'crud:delete' l.id %}">Eliminar</a></td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+{% endblock %}

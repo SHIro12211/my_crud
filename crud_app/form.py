@@ -2,15 +2,21 @@ from django import forms
 
 from .models import Person
 
-option_sex = [
+OPTION_SEX = [
     (1, 'Masculino'),
     (2, 'Femenino')
 ]
 
 
 class PersonForm(forms.ModelForm):
-
     class Meta:
-        models = Person
+        model = Person
         fields = '__all__'
-        widget = {'sex': forms.RadioSelect(choices=option_sex)}
+        labels = {
+            'sex': 'Sexo'
+        }
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'name'}),
+
+            'sex': forms.RadioSelect(choices=OPTION_SEX)
+        }
